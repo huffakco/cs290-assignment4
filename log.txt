@@ -1,0 +1,10 @@
+Start: Mon Feb 02 20:30:0 2015 -0800
+End: Mon Feb 02 22:30:0 2015 -0800
+Tasks: Total waste of time researching the PHP 'Getting started page'  trying to figure out how
+to set up a development environement.
+
+Start: Tue Feb 03 20:30:0 2015 -0800
+End: Tue Feb 03 22:10:0 2015 -0800
+Tasks: PHP reading and experimenting with demo files from the tutorial.
+
+
