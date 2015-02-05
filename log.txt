@@ -7,4 +7,12 @@ Start: Tue Feb 03 20:30:0 2015 -0800
 End: Tue Feb 03 22:10:0 2015 -0800
 Tasks: PHP reading and experimenting with demo files from the tutorial.
 
+Start: Wed Feb 04 06:17:0 2015 -0800
+End: Wed Feb 04 06:58:0 2015 -0800
+Tasks: Build basic functionality in javascript.  Not quite working.
+
+Start: Wed Feb 04 20:00:0 2015 -0800
+End: Wed Feb 04 22:04:17 2015 -0800
+Tasks: Work on demos and prototypes experimenting with post and get to php
+files.  Trying to understand arrays.  Echo doesn't behave like I expect.
 
