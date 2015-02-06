@@ -72,8 +72,8 @@ for ($j=1; $j < 5; $j++) {
 
 $var1 = count($myarray);
 echo '<br>count: ';
-echo $var1;
-echo sum($myarray);
+echo '$var1';
+echo 'sum($myarray)';
 
 ?>
 

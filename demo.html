@@ -2,19 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>
+  window.onload = function() {
+  var jsonObject = {name:"Cookie Monster", id:"123", addr:"Sesame Street"};
+  var id = document.getElementById('jsonText');
+  var jsonStr = JSON.stringify(jsonObject);
+  id.value = jsonStr;
+  }
+  </script>
   <title>Assignment 4 demo</title>
 </head>
 
 <body>
+<form action ="http://web.engr.oregonstate.edu/~huffakco/cs290-assignment4/loopback.php" method ="get">
+<input id='jsonText' type='text' name='name'><br>
+<input type="submit">
+</form>
+
+
+
 <!-- example from: http://www.w3schools.com/php/php_forms.asp -->
-<form action ="http://web.engr.oregonstate.edu/~huffakco/cs290-assignment4/helloworld.php" method ="get">
+<form action ="http://web.engr.oregonstate.edu/~huffakco/cs290-assignment4/loopback.php" method ="get">
 Name: <input type="text" name="name"><br>
 E-mail: <input type="text" name="email"><br>
 <input type="submit">
 </form>
  
 <!-- example from: http://www.w3schools.com/php/php_forms.asp -->
-<form action ="http://web.engr.oregonstate.edu/~huffakco/cs290-assignment4/helloworld.php" method ="post">
+<form action ="http://web.engr.oregonstate.edu/~huffakco/cs290-assignment4/loopback.php" method ="post">
 Name: <input type="text" name="name"><br>
 E-mail: <input type="text" name="email"><br>
 <input type="submit">
