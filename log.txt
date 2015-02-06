@@ -1,18 +1,21 @@
-Start: Mon Feb 02 20:30:0 2015 -0800
-End: Mon Feb 02 22:30:0 2015 -0800
+Start: Mon Feb 2 20:30:0 2015 -0800
+End: Mon Feb 2 22:30:0 2015 -0800
 Tasks: Total waste of time researching the PHP 'Getting started page'  trying to figure out how
 to set up a development environement.
 
-Start: Tue Feb 03 20:30:0 2015 -0800
-End: Tue Feb 03 22:10:0 2015 -0800
+Start: Tue Feb 3 20:30:0 2015 -0800
+End: Tue Feb 3 22:10:0 2015 -0800
 Tasks: PHP reading and experimenting with demo files from the tutorial.
 
-Start: Wed Feb 04 06:17:0 2015 -0800
-End: Wed Feb 04 06:58:0 2015 -0800
+Start: Wed Feb 4 06:17:0 2015 -0800
+End: Wed Feb 4 06:58:0 2015 -0800
 Tasks: Build basic functionality in javascript.  Not quite working.
 
-Start: Wed Feb 04 20:00:0 2015 -0800
-End: Wed Feb 04 22:04:17 2015 -0800
+Start: Wed Feb 4 20:00:0 2015 -0800
+End: Wed Feb 4 22:04:17 2015 -0800
 Tasks: Work on demos and prototypes experimenting with post and get to php
 files.  Trying to understand arrays.  Echo doesn't behave like I expect.
 
+Start: Thu Feb 5 21:00:0 2015 -0800
+End: Wed Feb 5 22:05:24 2015 -0800
+Tasks: Started loopback.php file.  Improved demo.html to support testing.
