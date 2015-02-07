@@ -1,5 +1,5 @@
-<html>
 <?php
+echo "<html>";
 echo "\n<head>";
 echo "\n<title>Multiplication Table</title>";
 echo "\n<style type=\"text/css\">\ntable, td, th {\nborder: 1px solid #777;\n}";
@@ -14,11 +14,16 @@ ini_set('display_errors', 1);
 function chkValid($val, $str)
 {
     if (empty($val)) {
-        return ('Missing parameter '.$str);
+        return ('Missing parameter '.$str.'.');
     }
     else {
       if (!(is_numeric($val))) {
-        return($str.' not a number');
+        return($str.' must be an integer.');
+      }
+      else {
+        if ((strpos($val,"."))) {
+          return($str.' must be an integer.');
+        }
       }
     }
     return("");
@@ -29,7 +34,7 @@ function chkValid($val, $str)
 function chkParams($maxVal,$minVal,$str) {
   if (($maxVal - $minVal) < 0)
   {
-    return ('Minimum '.$str.' larger than maximum\.');
+    return ('Minimum '.$str.' larger than maximum.');
   }
   return(($maxVal - $minVal)+2);
 };
@@ -73,58 +78,65 @@ function generateBody($minMt, $minMy, $valMt, $valMy) {
 
 // Get input variables
 function checkInputs() {
+  $result = true;
   $chkValue = chkValid($_GET["min-multiplicand"],"min-multiplicand");
   if (!(empty($chkValue) )) {
-      echo "<br>$chkValue<br>"; 
+    echo "<br>$chkValue<br>"; 
+    $result = false;
   }
-  else {
-    $chkValue = chkValid($_GET["max-multiplicand"],"max-multiplicand");
-    if (!(empty($chkValue) )){
-      echo "<br>$chkValue<br>"; 
+  $chkValue = chkValid($_GET["max-multiplicand"],"max-multiplicand");
+  if (!(empty($chkValue) )){
+    echo "<br>$chkValue<br>"; 
+    $result = false;
+  }
+  $chkValue = chkValid($_GET["min-multiplier"],"min-multiplier");
+  if (!(empty($chkValue) )){
+    echo "<br>$chkValue<br>"; 
+    $result = false;
+  }
+  $chkValue = chkValid($_GET["max-multiplier"],"max-multiplier");
+  if (!(empty($chkValue) )){
+    echo "<br>$chkValue<br>"; 
+    $result = false;
+  }
+  if ($result) {
+    //check for max > min
+    if ($_GET["max-multiplicand"] < $_GET["min-multiplicand"]) {
+      echo "<br>Minimum multiplicand larger than maximum<br>";
+      $result = false;
     }
-    else {
-      $chkValue = chkValid($_GET["min-multiplier"],"min-multiplier");
-      if (!(empty($chkValue) )){
-        echo "<br>$chkValue<br>"; 
-      }
-      else {
-        $chkValue = chkValid($_GET["max-multiplier"],"max-multiplier");
-        if (!(empty($chkValue) )){
-          echo "<br>$chkValue<br>"; 
-        }
-        else {
-          return(true);
-        }
-      }
-    }  
+    if ($_GET["max-multiplier"] < $_GET["min-multiplier"]) {
+      echo "<br>Minimum multiplier larger than maximum<br>";
+      $result = false;
+    }
   }
-  return(false);
+  
+  return($result);
 }
 
 if (checkInputs()) {
   // get inputs
-  $minMultiplicand = $_GET["min-multiplicand"];
-  $maxMultiplicand = $_GET["max-multiplicand"];
-  $minMultiplier = $_GET["min-multiplier"]; 
-  $maxMultiplier = $_GET["max-multiplier"]; 
+  $minMultiplicand = (int) $_GET["min-multiplicand"];
+  $maxMultiplicand = (int) $_GET["max-multiplicand"];
+  $minMultiplier = (int) $_GET["min-multiplier"]; 
+  $maxMultiplier = (int) $_GET["max-multiplier"]; 
 
   echo "minMultiplicand: $minMultiplicand<br>";
   echo "maxMultiplicand: $maxMultiplicand<br>";
   echo "minMultiplier: $minMultiplier<br>";
   echo "maxMultiplier: $maxMultiplier<br>";
-
+  
   //generate the table
   echo "\n<table>"; 
   $multiplicand = (($maxMultiplicand - $minMultiplicand) + 2);
   echo "multiplicand: $multiplicand<br>";
   $multiplier = (($maxMultiplier - $minMultiplier) + 2);
   echo "multiplier: $multiplier<br><br>";
-  generateHeader($minMultiplicand,(($maxMultiplicand - $minMultiplicand) + 2));
-  generateBody($minMultiplicand,$minMultiplier,$multiplicand,$multiplier);
+  generateHeader($minMultiplier,(($maxMultiplier - $minMultiplier) + 2));
+  generateBody($minMultiplier,$minMultiplicand,$multiplier,$multiplicand);
   echo "\n</table>"; 
 }
 
 echo "\n</body>";
+echo "\n</html>";
 ?>
-
-</html>
