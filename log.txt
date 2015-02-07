@@ -19,3 +19,23 @@ files.  Trying to understand arrays.  Echo doesn't behave like I expect.
 Start: Thu Feb 5 21:00:0 2015 -0800
 End: Wed Feb 5 22:05:24 2015 -0800
 Tasks: Started loopback.php file.  Improved demo.html to support testing.
+
+Start: Fri 6 Feb 2015 06:17:00 -0800
+End: Fri 6 Feb 2015 07:01:11 -0800
+Tasks: Finish getting multtable.js version working as prototype. Not online!
+
+Start: Fri 6 Feb 2015 16:30:00 -0800
+End: Fri 6 Feb 2015 17:29:13 -0800
+Tasks: Partial development of multtable.php from multtable.js outline.  Not online!
+
+Start: Fri 6 Feb 2015 21:00:00 -0800
+End: Fri 6 Feb 2015 23:59:47 -0800
+Tasks: multtable mostly complete.  Some additional work on loopback.php.  
+Need requirements help.
+
+Start: Fri 6 Feb 2015 23:59:48 -0800
+End: Sat 7 Feb 2015 00:38:52 -0800
+Tasks: Finished multtable.php including all checks and table generation.  Updated
+test html to allow inputting numeric than realized that it is still a string.
+
+
