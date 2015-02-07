@@ -1,13 +1,14 @@
 <html>
 <head>
-<title>PHP Test</title>
+<title>PHP Looback</title>
 <!-- copied from us2.php.net/manual/en/tutorial -->
 </head>
 <body>
 <?php echo '<p>Hello World</p>'; 
  $jsonParams = json_decode($_GET);
- echo $jsonParams[0];
- 
+ foreach $prop in $jsonParams
+    echo $prop;  
+    
 //Reference PHP Manual:
 //  http://us2.php.net/manual/en/reserved.variables.get.php
 echo "<br>This is the print_r result: <br>";

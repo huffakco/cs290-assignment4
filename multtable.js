@@ -9,8 +9,8 @@ function MultiParams(params) {
   
 var testVal = new MultiParams (
       {min_multiplicand: 2,
-       max_multiplicand: 2,
-       min_multiplier: 3,
+       max_multiplicand: 3,
+       min_multiplier: 2,
        max_multiplier: 3 });
   
 var chkValid = function(val, str) {
@@ -41,14 +41,14 @@ var chkParams = function(minVal,maxVal,str) {
   {
     return ('Minimum ' + str + ' larger than maximum.');
   }
-  return(0);
+  return((maxVal - minVal)+2);
 };
 
 var generateHeader = function(id,minVal,val) {
   var tblHeader = document.createElement('thead');
   var row = document.createElement('tr');
 
-  // First bland cell
+  // First empty cell
   var tblHead = document.createElement('th');
   tblHead.innerHTML = '';
   row.appendChild(tblHead);
@@ -74,7 +74,7 @@ var generateBody = function(id,valParams,val) {
     // creates a table row
     var row = document.createElement('tr');
     // create first element in row
-    var cell1 = document.createElement('td');
+    var cell1 = document.createElement('th');
     cell1.innerHTML = i;
     row.appendChild(cell1);
     for (var j = valParams.min_multiplicand; j < valParams.min_multiplicand + val; j++) {
