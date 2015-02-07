@@ -1,35 +1,28 @@
 <html>
-<head>
-<title>PHP Looback</title>
-</head>
-<body>
-
 <?php
+echo "\n<head>";
+echo "\n<title>Multiplication Table</title>";
+echo "\n<style type=\"text/css\">\ntable, td, th {\nborder: 1px solid #777;\n}";
+echo "\n</style>";
+echo "\n</head>";
+echo "\n<body>";
+// Thanks to Xisheng Wang for these next two lines!
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // function to check for data not null
 function chkValid($val, $str)
 {
-    if (!($val)) {
-        return ('Missing parameter '.str);
+    if (empty($val)) {
+        return ('Missing parameter '.$str);
     }
     else {
-      if (checker($val) < 0) {
-        return(str.' not a number');
+      if (!(is_numeric($val))) {
+        return($str.' not a number');
       }
     }
-    return($val);
+    return("");
 };
-
-// function to check for data a number
-function checker($val) {
-  if (typeof($val) === 'number')
-  {
-    return($val);
-  }
-  else {
-    return (-1);
-  }
-};
-
 
 // determines if max < min, returns str if yes otherwise value
 // to use in calculating table size
@@ -42,89 +35,96 @@ function chkParams($maxVal,$minVal,$str) {
 };
 
 function generateHeader($minVal,$val) {
-  echo "<thead>";
-  echo "<tr>";
+  echo "\n<thead>";
+  echo "\n<tr>";
 
   // First empty cell
-  echo "<th>";
-  echo "</th>";
- 
+  echo "\n<th></th>";
+
   // Define header elements
   for ($i = $minVal; $i < $minVal + $val; $i++)
   {
-    echo "<th>";
+    echo "\n<th>";
     echo $i;
     echo "</th>";
   }
-  echo "</tr>";
-  echo "</thead>";
+  echo "\n</tr>";
+  echo "\n</thead>";
 };
 
 
-function generateBody($minMt, $maxMy, $val) {
-  echo "<tbody">;
+function generateBody($minMt, $minMy, $valMt, $valMy) {
+  echo "\n<tbody>";
  
-  // creating all cells - finish converting to php
-  for (var i = valParams.min_multiplier; i < valParams.min_multiplier + val ; i++) {
-    // creates a table row
-    var row = document.createElement('tr');
-    // create first element in row
-    var cell1 = document.createElement('th');
-    cell1.innerHTML = i;
-    row.appendChild(cell1);
-    for (var j = valParams.min_multiplicand; j < valParams.min_multiplicand + val; j++) {
-      var cell1 = document.createElement('td');
-      cell1.innerHTML = i * j;
-      row.appendChild(cell1);
-    }
-    // add the row to the end of the table body
-    tblBody.appendChild(row);
+  //creating all cells
+  for ($i = $minMy; $i < ($minMy + $valMy) ; $i++) {
+    //creates a table row
+    echo "\n<tr>";
+    //create first element in row
+    echo '<th>'.$i.'</th>';
+    for ($j = $minMt; $j < ($minMt + $valMt); $j++) {
+      echo '<td>'.($i * $j).'</td>';
+      }
+    // end row
+    echo "\n</tr>";
   }
-  echo "</tbody">;
+  echo "\n</tbody>";
 };
-
 
 // Get input variables
-$minMultiplicand = chkValid($_GET["min-multiplicand"], "min-multiplicand");
-$maxMultiplicand = chkValid($_GET["max-multiplicand"], "max-multiplicand");
-$minMultiplier = chkValid($_GET["min-multiplier"], "min-multiplier");
-$maxMultiplier = chkValid($_GET["max-multiplier"], "max-multiplier");
-
-// check variables
-if (!($minMultiplicand >= 0)) {
-  echo $minMultiplicand;
-}
-elseif (!($maxMultiplicand >= 0)) {
-  echo $maxMultiplicand;
-}
-elseif (!($minMultiplier >= 0)) {
-  echo $minMultiplier;
-}
-elseif (!($maxMultiplier >= 0)) {
-  echo $maxMultiplier;
-}
-else {
-  // check that max greater than min
-  $multiplicand = chkParams($maxMultiplicand,$minMultiplicand,"multiplicand");
-  if (!($multiplicand > 0) {
-    echo $multiplicand;
+function checkInputs() {
+  $chkValue = chkValid($_GET["min-multiplicand"],"min-multiplicand");
+  if (!(empty($chkValue) )) {
+      echo "<br>$chkValue<br>"; 
   }
   else {
-    $multiplier = chkParams($maxMultiplier,$minMultiplier,"multiplier");
-    if (!($multiplier > 0) {
-      echo $multiplier;
+    $chkValue = chkValid($_GET["max-multiplicand"],"max-multiplicand");
+    if (!(empty($chkValue) )){
+      echo "<br>$chkValue<br>"; 
     }
     else {
-  
-      // generate the table
-      echo '<table>'; 
-      generateHeader($minMultiplicand,$multiplicand);
-      generateBody($minMultiplier,$min-Multiplicand,$multiplier);
-      echo '</table>'; 
-    }
+      $chkValue = chkValid($_GET["min-multiplier"],"min-multiplier");
+      if (!(empty($chkValue) )){
+        echo "<br>$chkValue<br>"; 
+      }
+      else {
+        $chkValue = chkValid($_GET["max-multiplier"],"max-multiplier");
+        if (!(empty($chkValue) )){
+          echo "<br>$chkValue<br>"; 
+        }
+        else {
+          return(true);
+        }
+      }
+    }  
   }
+  return(false);
 }
 
+if (checkInputs()) {
+  // get inputs
+  $minMultiplicand = $_GET["min-multiplicand"];
+  $maxMultiplicand = $_GET["max-multiplicand"];
+  $minMultiplier = $_GET["min-multiplier"]; 
+  $maxMultiplier = $_GET["max-multiplier"]; 
+
+  echo "minMultiplicand: $minMultiplicand<br>";
+  echo "maxMultiplicand: $maxMultiplicand<br>";
+  echo "minMultiplier: $minMultiplier<br>";
+  echo "maxMultiplier: $maxMultiplier<br>";
+
+  //generate the table
+  echo "\n<table>"; 
+  $multiplicand = (($maxMultiplicand - $minMultiplicand) + 2);
+  echo "multiplicand: $multiplicand<br>";
+  $multiplier = (($maxMultiplier - $minMultiplier) + 2);
+  echo "multiplier: $multiplier<br><br>";
+  generateHeader($minMultiplicand,(($maxMultiplicand - $minMultiplicand) + 2));
+  generateBody($minMultiplicand,$minMultiplier,$multiplicand,$multiplier);
+  echo "\n</table>"; 
+}
+
+echo "\n</body>";
 ?>
-</body>
+
 </html>
