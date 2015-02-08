@@ -13,7 +13,7 @@ ini_set('display_errors', 1);
 // function to check for data not null
 function chkValid($val, $str)
 {
-    if (empty($val)) {
+    if (empty($val) && ($val != '0')) {
         return ('Missing parameter '.$str.'.');
     }
     else {
@@ -36,7 +36,7 @@ function chkParams($maxVal,$minVal,$str) {
   {
     return ('Minimum '.$str.' larger than maximum.');
   }
-  return(($maxVal - $minVal)+2);
+  return(($maxVal - $minVal)+1);
 };
 
 function generateHeader($minVal,$val) {
@@ -47,7 +47,7 @@ function generateHeader($minVal,$val) {
   echo "\n<th></th>";
 
   // Define header elements
-  for ($i = $minVal; $i < $minVal + $val; $i++)
+  for ($i = $minVal; $i < $val; $i++)
   {
     echo "\n<th>";
     echo $i;
@@ -62,12 +62,12 @@ function generateBody($minMt, $minMy, $valMt, $valMy) {
   echo "\n<tbody>";
  
   //creating all cells
-  for ($i = $minMy; $i < ($minMy + $valMy) ; $i++) {
+  for ($i = $minMy; $i < $valMy ; $i++) {
     //creates a table row
     echo "\n<tr>";
     //create first element in row
     echo '<th>'.$i.'</th>';
-    for ($j = $minMt; $j < ($minMt + $valMt); $j++) {
+    for ($j = $minMt; $j < $valMt; $j++) {
       echo '<td>'.($i * $j).'</td>';
       }
     // end row
