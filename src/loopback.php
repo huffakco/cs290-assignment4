@@ -21,7 +21,7 @@ ini_set('display_errors', 1);
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $postStr = "{\"Type\":\"POST\",\"parameters\":";
-  if (sizeof($_POST) > 1) {
+  if (isset($_POST) && (sizeof($_POST) > 0)) {
     foreach ($_POST as $key => $value) {
       //echo "$key: $value<br>";
       //$postStr = "$postStr\"$key\":\"$value\",";
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 else { 
   if($_SERVER['REQUEST_METHOD'] === 'GET') {
     $getStr = "{\"Type\":\"GET\",\"parameters\":";
-    if (sizeof($_GET) > 1) {
+    if (isset($_GET) && (sizeof($_GET) > 0)) {
       foreach ($_GET as $key => $value) {
         //echo "$key: $value<br>";
         //$getStr = "$getStr\"$key\":\"$value\",";
