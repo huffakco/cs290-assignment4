@@ -1,5 +1,6 @@
 <?php 
 // Thanks to Xisheng Wang for these next two lines!
+ob_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -28,8 +29,8 @@ session_start();
 //die();
   // }
 // }
-$jsonStr = json_encode($_SESSION);
-echo $jsonStr;
+//$jsonStr = json_encode($_SESSION);
+//echo $jsonStr;
 
 echo "\n<html>";
 echo "\n<head>";
@@ -81,8 +82,25 @@ function loginCheck() {
 
 
 if(session_status() == PHP_SESSION_ACTIVE){
-  echo "<br>Session is active<br>";
+  //echo "<br>Session is active<br>";
   // check login
+  if (isset($_GET['logout']) && ($_GET['logout']))
+  {
+    // log user out and redirect to login page;
+    session_unset();
+    session_destroy();
+    echo "You have been logged out!";
+    //   redirect to the login page
+    $filepath = explode('/', $_SERVER['PHP_SELF'], -1);
+    $filepath = implode('/',$filepath);
+    $redirect = "http://".$_SERVER['HTTP_HOST'].$filepath;
+    header("Location: {$redirect}/login.php", true);
+    ob_end_flush();
+    ob_end_clean();
+    die();
+  }
+  
+  
   loginCheck();
   // logged in present content
 
@@ -92,12 +110,12 @@ if(session_status() == PHP_SESSION_ACTIVE){
     if (!isset($_SESSION['visits'])) {
       $_SESSION['visits'] = 0;
       $n = $_SESSION['visits'];  
-      echo "<br>New visit: $n <br>";
+      //echo "<br>New visit: $n <br>";
     }
     else {
       $_SESSION['visits']++;
       $n = $_SESSION['visits'];  
-      echo "<br>Return visit: $n<br>";
+      //echo "<br>Return visit: $n<br>";
     }
     
     $n = $_SESSION['visits'];  
