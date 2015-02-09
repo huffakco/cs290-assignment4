@@ -1,6 +1,8 @@
 <?php 
-echo "\n<html>";
+echo "<!DOCTYPE html>";
+echo "<html>";
 echo "\n<head>";
+echo "<meta charset='utf-8'>";
 echo "\n<title>Loop Back</title>";
 echo "\n</head>";
 echo "\n<body>";

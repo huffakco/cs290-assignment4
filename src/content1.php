@@ -31,9 +31,10 @@ session_start();
 // }
 //$jsonStr = json_encode($_SESSION);
 //echo $jsonStr;
-
-echo "\n<html>";
+echo "<!DOCTYPE html>";
+echo "<html>";
 echo "\n<head>";
+echo "<meta charset='utf-8'>";
 echo "\n<title>Content1</title>";
 // javascript with button function
 //echo "\n<script type='text/javascript'>function logout() {";

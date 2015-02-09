@@ -3,8 +3,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-echo "\n<html>";
+echo "<!DOCTYPE html>";
+echo "<html>";
 echo "\n<head>";
+echo "<meta charset='utf-8'>";
 echo "\n<title>Login</title>";
 echo "\n<style type=\"text/css\">";
 echo "\ninput {\nmargin: 0.5em;\n}";

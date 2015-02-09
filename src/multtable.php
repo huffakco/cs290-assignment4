@@ -1,6 +1,8 @@
 <?php
+echo "<!DOCTYPE html>";
 echo "<html>";
 echo "\n<head>";
+echo "<meta charset='utf-8'>";
 echo "\n<title>Multiplication Table</title>";
 echo "\n<style type=\"text/css\">\ntable, td, th {\nborder: 1px solid #777;\n}";
 echo "\n</style>";

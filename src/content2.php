@@ -10,8 +10,10 @@ session_start();
 //$jsonStr = json_encode($_SESSION);
 //echo $jsonStr;
 
-echo "\n<html>";
+echo "<!DOCTYPE html>";
+echo "<html>";
 echo "\n<head>";
+echo "<meta charset='utf-8'>";
 echo "\n<title>Content2</title>";
 
 echo "\n</head>";
