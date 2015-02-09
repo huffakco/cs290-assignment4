@@ -42,7 +42,7 @@ Start: Sat, 7 Feb 2015 14:00:00 -0800
 End: Sat, 7 Feb 2015 17:50:10 -0800
 Tasks: Fixed issue with 0 on multtable and fixed loopback to find null and print.
 
-Start: 7 Feb 2015 18:30:00 -0800
+Start: Sat, 7 Feb 2015 18:30:00 -0800
 End: Sat, 7 Feb 2015 21:58:45 -0800
 Tasks: Created login.php and content1.php.  Added Session variables and login 
 process.
@@ -62,3 +62,12 @@ Tasks: Fixed logout by adding output buffering.
 Start: Sun, 8 Feb 2015 14:30:00 -0800
 End: Sun, 8 Feb 2015 15:46:47 -0800
 Tasks: Fixed issue with loopback for single key values, improved null handling.
+
+Start: Sun, 8 Feb 2015 18:14:00 -0800
+End: Sun, 8 Feb 2015 18:17:49 -0800
+Tasks: Log update and take echo statements out of multtable
+
+Start: Sun, 8 Feb 2015 19:45:18 -0800
+End: Sun, 8 Feb 2015 19:59:18 -0800
+Tasks: Fixed problem in the calculation of multiplier and multiplicand based on 
+final test.
