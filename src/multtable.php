@@ -79,26 +79,52 @@ function generateBody($minMt, $minMy, $valMt, $valMy) {
 // Get input variables
 function checkInputs() {
   $result = true;
-  $chkValue = chkValid($_GET["min-multiplicand"],"min-multiplicand");
-  if (!(empty($chkValue) )) {
-    echo "<br>$chkValue<br>"; 
+  
+  if (!(isset($_GET["min-multiplicand"]))) {
+    echo "<br>Missing parameter min-multiplicand.<br>";
     $result = false;
+  } else {
+    $chkValue = chkValid($_GET["min-multiplicand"],"min-multiplicand");
+    if (!(empty($chkValue) )) {
+      echo "<br>$chkValue<br>"; 
+      $result = false;
+    }
   }
-  $chkValue = chkValid($_GET["max-multiplicand"],"max-multiplicand");
-  if (!(empty($chkValue) )){
-    echo "<br>$chkValue<br>"; 
+  
+  if (!(isset($_GET["max-multiplicand"]))) {
+    echo "<br>Missing parameter max-multiplicand.<br>";
     $result = false;
+  } else {
+    $chkValue = chkValid($_GET["max-multiplicand"],"max-multiplicand");
+    if (!(empty($chkValue) )){
+      echo "<br>$chkValue<br>"; 
+      $result = false;
+    }
   }
-  $chkValue = chkValid($_GET["min-multiplier"],"min-multiplier");
-  if (!(empty($chkValue) )){
-    echo "<br>$chkValue<br>"; 
+  
+  if (!(isset($_GET["min-multiplier"]))) {
+    echo "<br>Missing parameter min-multiplier.<br>";
     $result = false;
+  } else {
+    $chkValue = chkValid($_GET["min-multiplier"],"min-multiplier");
+    if (!(empty($chkValue) )){
+      echo "<br>$chkValue<br>"; 
+      $result = false;
+    }
   }
-  $chkValue = chkValid($_GET["max-multiplier"],"max-multiplier");
-  if (!(empty($chkValue) )){
-    echo "<br>$chkValue<br>"; 
+  
+  
+  if (!(isset($_GET["max-multiplier"]))) {
+    echo "<br>Missing parameter max-multiplier.<br>";
     $result = false;
+  } else {
+    $chkValue = chkValid($_GET["max-multiplier"],"max-multiplier");
+    if (!(empty($chkValue) )){
+      echo "<br>$chkValue<br>"; 
+      $result = false;
+    }
   }
+  
   if ($result) {
     //check for max > min
     if ($_GET["max-multiplicand"] < $_GET["min-multiplicand"]) {
