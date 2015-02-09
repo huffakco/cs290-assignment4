@@ -76,3 +76,7 @@ Start: Sun, 8 Feb 2015 19:59:18 -0800
 End: Sun, 8 Feb 2015 20:22:04 -0800
 Tasks: Fixed one last problem with handling no parameters to multtable.php using 
 the isset function.
+
+Start: Sun, 8 Feb 2015 20:22:04 -0800
+End: Sun, 8 Feb 2015 20:37:14 -0800
+Tasks: Fixed validator issue and retested.
