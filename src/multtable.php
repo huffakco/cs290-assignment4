@@ -121,17 +121,17 @@ if (checkInputs()) {
   $minMultiplier = (int) $_GET["min-multiplier"]; 
   $maxMultiplier = (int) $_GET["max-multiplier"]; 
 
-  echo "minMultiplicand: $minMultiplicand<br>";
-  echo "maxMultiplicand: $maxMultiplicand<br>";
-  echo "minMultiplier: $minMultiplier<br>";
-  echo "maxMultiplier: $maxMultiplier<br>";
+//  echo "minMultiplicand: $minMultiplicand<br>";
+//  echo "maxMultiplicand: $maxMultiplicand<br>";
+//  echo "minMultiplier: $minMultiplier<br>";
+//  echo "maxMultiplier: $maxMultiplier<br>";
   
   //generate the table
   echo "\n<table>"; 
   $multiplicand = (($maxMultiplicand - $minMultiplicand) + 2);
-  echo "multiplicand: $multiplicand<br>";
+//  echo "multiplicand: $multiplicand<br>";
   $multiplier = (($maxMultiplier - $minMultiplier) + 2);
-  echo "multiplier: $multiplier<br><br>";
+//  echo "multiplier: $multiplier<br><br>";
   generateHeader($minMultiplier,(($maxMultiplier - $minMultiplier) + 2));
   generateBody($minMultiplier,$minMultiplicand,$multiplier,$multiplicand);
   echo "\n</table>"; 
