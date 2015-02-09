@@ -47,7 +47,7 @@ function generateHeader($minVal,$val) {
   echo "\n<th></th>";
 
   // Define header elements
-  for ($i = $minVal; $i < $val; $i++)
+  for ($i = $minVal; $i < ($minVal + $val); $i++)
   {
     echo "\n<th>";
     echo $i;
@@ -62,12 +62,12 @@ function generateBody($minMt, $minMy, $valMt, $valMy) {
   echo "\n<tbody>";
  
   //creating all cells
-  for ($i = $minMy; $i < $valMy ; $i++) {
+  for ($i = $minMy; $i < ($minMy + $valMy) ; $i++) {
     //creates a table row
     echo "\n<tr>";
     //create first element in row
     echo '<th>'.$i.'</th>';
-    for ($j = $minMt; $j < $valMt; $j++) {
+    for ($j = $minMt; $j < ($minMt + $valMt); $j++) {
       echo '<td>'.($i * $j).'</td>';
       }
     // end row
@@ -128,11 +128,11 @@ if (checkInputs()) {
   
   //generate the table
   echo "\n<table>"; 
-  $multiplicand = (($maxMultiplicand - $minMultiplicand) + 2);
+  $multiplicand = (($maxMultiplicand - $minMultiplicand) + 1);
 //  echo "multiplicand: $multiplicand<br>";
-  $multiplier = (($maxMultiplier - $minMultiplier) + 2);
+  $multiplier = (($maxMultiplier - $minMultiplier) + 1);
 //  echo "multiplier: $multiplier<br><br>";
-  generateHeader($minMultiplier,(($maxMultiplier - $minMultiplier) + 2));
+  generateHeader($minMultiplier,$multiplier);
   generateBody($minMultiplier,$minMultiplicand,$multiplier,$multiplicand);
   echo "\n</table>"; 
 }
